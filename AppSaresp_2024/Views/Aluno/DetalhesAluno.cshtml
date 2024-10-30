@@ -1,0 +1,65 @@
+﻿@model AppSaresp_2024.Models.Aluno
+
+@{
+    ViewData["Title"] = "DetalhesAluno";
+}
+
+<h1>Detalhes Aluno</h1>
+
+<div>
+    <h4>Alunos</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.idAluno)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.idAluno)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.nome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.serie)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.serie)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.turma)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.turma)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.telefone)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.telefone)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.dataNasc)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.dataNasc)
+        </dd>
+    </dl>
+</div>
+<br />
+<button type="button" class="btn btn-primary botaoeditar">
+    @Html.ActionLink("Editar", "AtualizarAluno", new { id = Model.idAluno })
+</button>
+<button type="button" class="btn btn-primary botaoeditar">
+    @Html.ActionLink("Voltar", "Index")
+</button>
+</div>
+

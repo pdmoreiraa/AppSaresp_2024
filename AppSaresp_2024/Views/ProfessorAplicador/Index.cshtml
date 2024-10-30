@@ -1,0 +1,52 @@
+﻿@model IEnumerable<AppSaresp_2024.Models.ProfessorAplicador>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de Professor Aplicador</h1>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col"> @Html.DisplayNameFor(model => model.idProfessor) </th>
+                <th scope="col"> @Html.DisplayNameFor(model => model.nome) </th>
+                <th scope="col"> @Html.DisplayNameFor(model => model.CPF)  </th>
+                <th scope="col"> @Html.DisplayNameFor(model => model.RG)  </th>
+                <th scope="col"> @Html.DisplayNameFor(model => model.telefone)  </th>
+                <th scope="col"> @Html.DisplayNameFor(model => model.dataNasc) </th>
+                <th scope="col">Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ProfessorAplicador professorAplicador in Model)
+            {
+                <tr>
+                    <td>@professorAplicador.idProfessor)</td>
+                    <td>@professorAplicador.nome</td>
+                    <td>@professorAplicador.CPF</td>
+                    <td>@professorAplicador.RG</td>
+                    <td>@professorAplicador.telefone</td>
+                    <td>@professorAplicador.dataNasc.ToString("dd/MM/yyyy")</td>
+                    <td>
+                        <button type="button" class="btn btn-warning botaoeditar">
+                            @Html.ActionLink("Editar", "AtualizarProfessorAplicador", new { id = professorAplicador.idProfessor })
+                        </button>
+
+                        <button type="button" class="btn btn-secondary botaodetalhes">
+                            @Html.ActionLink("Detalhes", "DetalhesProfessorAplicador", new { id = professorAplicador.idProfessor })
+                        </button>
+
+                        <button type="button" class="btn btn-danger botaoexcluir">
+                            @Html.ActionLink("Excluir", "ExcluirProfessorAplicador", new { id = professorAplicador.idProfessor },
+                                     new { onclick = "return confirm('Deseja realmente desativar?');" })
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<p><a class="btn btn-primary" asp-action="CadastrarProfessorAplicador" asp-controller="ProfessorAplicador">Cadastrar</a></p>

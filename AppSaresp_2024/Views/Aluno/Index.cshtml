@@ -1,0 +1,54 @@
+﻿@model IEnumerable<AppSaresp_2024.Models.Aluno>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de Alunos</h1>
+
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col"> @Html.DisplayNameFor(model => model.idAluno) </th>
+                <th scope="col"> @Html.DisplayNameFor(model => model.nome) </th>
+                <th scope="col"> @Html.DisplayNameFor(model => model.email)  </th>
+                <th scope="col"> @Html.DisplayNameFor(model => model.serie)  </th>
+                <th scope="col"> @Html.DisplayNameFor(model => model.turma)  </th>
+                <th scope="col"> @Html.DisplayNameFor(model => model.telefone)  </th>
+                <th scope="col"> @Html.DisplayNameFor(model => model.dataNasc) </th>
+                <th scope="col">Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Aluno aluno in Model)
+            {
+                <tr>
+                    <td>@aluno.idAluno)</td>
+                    <td>@aluno.nome</td>
+                    <td>@aluno.email</td>
+                    <td>@aluno.serie º</td>
+                    <td>@aluno.turma</td>
+                    <td>@aluno.telefone</td>
+                    <td>@aluno.dataNasc.ToString("dd/MM/yyyy")</td>
+                    <td>
+                        <button type="button" class="btn btn-warning botaoeditar">
+                            @Html.ActionLink("Editar", "AtualizarAluno", new { id = aluno.idAluno })
+                        </button>
+
+                        <button type="button" class="btn btn-secondary botaodetalhes">
+                            @Html.ActionLink("Detalhes", "DetalhesAluno", new { id = aluno.idAluno })
+                        </button>
+
+                        <button type="button" class="btn btn-danger botaoexcluir">
+                            @Html.ActionLink("Excluir", "ExcluirAluno", new { id = aluno.idAluno },
+                                     new { onclick = "return confirm('Deseja realmente desativar?');" })
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<p><a class="btn btn-primary" asp-action="CadastrarAluno" asp-controller="Aluno">Cadastrar</a></p>
