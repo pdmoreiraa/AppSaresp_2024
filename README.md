@@ -1,4 +1,4 @@
 # Projeto finalizado AppSaresp_2024 ASP.NET Core MVC
-## ALunos:
+## Alunos:
 ### Leonardo dos Santos Pessanha
 ### Pedro Henrique Moreira Silva
